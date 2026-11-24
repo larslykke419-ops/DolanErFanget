@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Velkommen til DolanErFanget – min personlige hjemmeside.">
+  <title>DolanErFanget | Min hjemmeside</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #151d33;
+      --text: #f4f6ff;
+      --muted: #aab4ce;
+      --accent: #8b7cff;
+      --accent2: #42d6c5;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(ellipse at top, #1b2450 0, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 22px 24px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: .3px; }
+    .logo span { color: var(--accent2); }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .95rem; }
+    nav a:hover { color: white; }
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 105px 24px 90px;
+      text-align: center;
+    }
+    .tag {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #ffffff25;
+      border-radius: 999px;
+      color: var(--accent2);
+      background: #ffffff08;
+      font-size: .85rem;
+    }
+    h1 { font-size: clamp(2.8rem, 8vw, 5.7rem); line-height: 1.04; margin: 22px 0 16px; }
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .intro { max-width: 620px; margin: auto; color: var(--muted); font-size: 1.1rem; }
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: #0b1020;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      text-decoration: none;
+      font-weight: 800;
+    }
+    main { max-width: 1000px; margin: auto; padding: 0 24px 80px; }
+    section { scroll-margin-top: 25px; margin-top: 26px; }
+    .card {
+      background: #151d33dd;
+      border: 1px solid #ffffff14;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 18px 55px #00000020;
+    }
+    h2 { margin-top: 0; font-size: 1.7rem; }
+    .muted { color: var(--muted); }
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tile {
+      padding: 20px;
+      background: #ffffff08;
+      border: 1px solid #ffffff12;
+      border-radius: 15px;
+    }
+    .tile strong { display: block; margin-bottom: 7px; }
+    footer { text-align: center; color: var(--muted); padding: 25px; border-top: 1px solid #ffffff12; }
+    @media (max-width: 650px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { gap: 14px; }
+      .hero { padding-top: 75px; }
+      .tiles { grid-template-columns: 1fr; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dolan<span>ErFanget</span></div>
+    <nav aria-label="Hovedmenu">
+      <a href="#om">Om mig</a>
+      <a href="#interesser">Interesser</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="tag">VELKOMMEN TIL MIN HJEMMESIDE</div>
+    <h1>Hej, jeg er<br><span>DolanErFanget.</span></h1>
+    <p class="intro">Dette er mit eget lille hjørne af internettet. Her kan du lære mig bedre at kende og se, hvad jeg går op i.</p>
+    <a class="button" href="#om">Udforsk hjemmesiden</a>
+  </div>
+
+  <main>
+    <section id="om" class="card">
+      <h2>Om mig</h2>
+      <p class="muted">Hej! Velkommen til DolanErFanget. Denne tekst kan du ændre, så den fortæller lidt om dig selv. Skriv kun oplysninger, du har lyst til at dele offentligt.</p>
+    </section>
+
+    <section id="interesser" class="card">
+      <h2>Mine interesser</h2>
+      <div class="tiles">
+        <div class="tile"><strong>⚽ Fodbold</strong><span class="muted">Skriv lidt om dine yndlingshold eller spillere.</span></div>
+        <div class="tile"><strong>🎮 Gaming</strong><span class="muted">Fortæl hvilke spil du spiller.</span></div>
+        <div class="tile"><strong>✨ Mere</strong><span class="muted">Tilføj andre interesser eller hobbyer.</span></div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="card">
+      <h2>Kontakt</h2>
+      <p class="muted">Du kan tilføje en offentlig kontaktmulighed her senere. Undgå at lægge privat adresse, telefonnummer eller andre personlige oplysninger ud.</p>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> DolanErFanget · Lavet med HTML og CSS</footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
