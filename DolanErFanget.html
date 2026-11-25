@@ -266,13 +266,16 @@ let powered = true;
 
 const cameraData = {
   1: ["CAM 01 - DOLAN", "DOLAN - HOVEDRUM",
-      "Dolan er blevet registreret i kælderen."],
+      "Dolan sidder i kælderen.", "dolan.jpg"],
+
   2: ["CAM 02 - LAGER", "LAGERET",
-      "Lageret er stille. Ingen bevægelse registreret."],
+      "Lageret er stille.", "lager.jpg"],
+
   3: ["CAM 03 - TRAPPEN", "KÆLDERTRAPPEN",
-      "Trappen er tom. Lyset flimrer."],
+      "Lyset flimrer på trappen.", "trappe.jpg"],
+
   4: ["CAM 04 - UKENDT", "UKENDT SIGNAL",
-      "Kameraet viser noget mærkeligt."]
+      "Der er registreret mærkelig aktivitet.", "ukendt.jpg"]
 };
 
 function enter() {
@@ -287,7 +290,9 @@ function goBack() {
 
 function changeCam(number) {
   currentCam = number;
-
+document.getElementById("cameraImage").src =
+  cameraData[number][3];
+  
   document.getElementById("camTitle").textContent =
     cameraData[number][0];
 
