@@ -1,145 +1,323 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Velkommen til DolanErFanget – min personlige hjemmeside.">
-  <title>DolanErFanget | Min hjemmeside</title>
-  <style>
-    :root {
-      --bg: #0b1020;
-      --panel: #151d33;
-      --text: #f4f6ff;
-      --muted: #aab4ce;
-      --accent: #8b7cff;
-      --accent2: #42d6c5;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(ellipse at top, #1b2450 0, var(--bg) 55%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      max-width: 1100px;
-      margin: auto;
-      padding: 22px 24px;
-    }
-    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: .3px; }
-    .logo span { color: var(--accent2); }
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
-    nav a { color: var(--muted); text-decoration: none; font-size: .95rem; }
-    nav a:hover { color: white; }
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-      padding: 105px 24px 90px;
-      text-align: center;
-    }
-    .tag {
-      display: inline-block;
-      padding: 7px 13px;
-      border: 1px solid #ffffff25;
-      border-radius: 999px;
-      color: var(--accent2);
-      background: #ffffff08;
-      font-size: .85rem;
-    }
-    h1 { font-size: clamp(2.8rem, 8vw, 5.7rem); line-height: 1.04; margin: 22px 0 16px; }
-    h1 span {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .intro { max-width: 620px; margin: auto; color: var(--muted); font-size: 1.1rem; }
-    .button {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 12px 20px;
-      border-radius: 12px;
-      color: #0b1020;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      text-decoration: none;
-      font-weight: 800;
-    }
-    main { max-width: 1000px; margin: auto; padding: 0 24px 80px; }
-    section { scroll-margin-top: 25px; margin-top: 26px; }
-    .card {
-      background: #151d33dd;
-      border: 1px solid #ffffff14;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 18px 55px #00000020;
-    }
-    h2 { margin-top: 0; font-size: 1.7rem; }
-    .muted { color: var(--muted); }
-    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .tile {
-      padding: 20px;
-      background: #ffffff08;
-      border: 1px solid #ffffff12;
-      border-radius: 15px;
-    }
-    .tile strong { display: block; margin-bottom: 7px; }
-    footer { text-align: center; color: var(--muted); padding: 25px; border-top: 1px solid #ffffff12; }
-    @media (max-width: 650px) {
-      header { align-items: flex-start; flex-direction: column; }
-      nav { gap: 14px; }
-      .hero { padding-top: 75px; }
-      .tiles { grid-template-columns: 1fr; }
-      .card { padding: 22px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DolanErFanget - CCTV</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050807;
+  color: #d8ffe0;
+  font-family: monospace;
+}
+
+header {
+  padding: 20px;
+  background: #080e0a;
+  border-bottom: 1px solid #294b32;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: #65ff82;
+}
+
+.status {
+  color: #65ff82;
+  font-size: 12px;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 18px;
+}
+
+.intro {
+  text-align: center;
+  padding: 90px 10px;
+}
+
+h1 {
+  font-size: clamp(35px, 7vw, 65px);
+  text-shadow: 0 0 20px #65ff82;
+}
+
+p {
+  color: #9eafa2;
+  line-height: 1.7;
+}
+
+button {
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.enter {
+  margin-top: 25px;
+  padding: 16px 25px;
+  background: #65ff82;
+  color: black;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.enter:hover {
+  background: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.panel {
+  background: #0b120e;
+  border: 1px solid #31513a;
+  padding: 15px;
+}
+
+.panel-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.recording {
+  color: #ff4444;
+}
+
+.camera {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  border: 2px solid #435348;
+}
+
+.camera img {
+  display: block;
+  width: 100%;
+  min-height: 250px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.3) brightness(.8);
+}
+
+.camera::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    rgba(0,0,0,.12) 2px,
+    transparent 4px
+  );
+  animation: flicker .15s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: .7; }
+  50% { opacity: 1; }
+}
+
+.camera-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #8cff9e;
+  z-index: 2;
+  text-shadow: 0 0 8px green;
+}
+
+.camera-time {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  z-index: 2;
+  color: #8cff9e;
+  font-size: 12px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.cam-btn, .back {
+  background: #101c13;
+  border: 1px solid #45664d;
+  color: #d8ffe0;
+  padding: 13px 17px;
+}
+
+.cam-btn.active {
+  background: #65ff82;
+  color: black;
+}
+
+.back {
+  margin-bottom: 20px;
+}
+
+.description {
+  margin-top: 18px;
+  border-left: 3px solid #65ff82;
+  padding: 10px 15px;
+}
+
+footer {
+  text-align: center;
+  color: #53665a;
+  padding: 30px;
+  font-size: 11px;
+}
+
+@media(max-width:600px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">Dolan<span>ErFanget</span></div>
-    <nav aria-label="Hovedmenu">
-      <a href="#om">Om mig</a>
-      <a href="#interesser">Interesser</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
 
-  <div class="hero">
-    <div class="tag">VELKOMMEN TIL MIN HJEMMESIDE</div>
-    <h1>Hej, jeg er<br><span>DolanErFanget.</span></h1>
-    <p class="intro">Dette er mit eget lille hjørne af internettet. Her kan du lære mig bedre at kende og se, hvad jeg går op i.</p>
-    <a class="button" href="#om">Udforsk hjemmesiden</a>
+<header>
+  <div class="logo">DOLAN<span>ERFANGET</span></div>
+  <div class="status">SYSTEM: ONLINE</div>
+</header>
+
+<main>
+
+<section id="entrance" class="intro">
+  <p>VIKTORS KÆLDER // SIKKERHEDSSYSTEM</p>
+  <h1>WELCOME TO THE BASEMENT</h1>
+  <p>Fire kameraer. Én kælder. Hvor er Dolan?</p>
+  <button class="enter" onclick="enter()">GÅ IND I KÆLDEREN →</button>
+</section>
+
+<section id="monitor" class="hidden">
+
+  <button class="back" onclick="goBack()">← TILBAGE</button>
+
+  <h2>OVERVÅGNINGSCENTER</h2>
+
+  <div class="panel">
+
+    <div class="panel-top">
+      <span id="camTitle">CAM 01 - DOLAN</span>
+      <span class="recording">● REC</span>
+    </div>
+
+    <div class="camera" id="camera">
+      <div class="camera-label" id="label">CAM 01</div>
+
+      <img
+        id="cameraImage"
+        src="kelder-cctv.png"
+        alt="Fiktivt overvågningsbillede fra kælderen">
+
+      <div class="camera-time">VIKTORS KÆLDER // CCTV</div>
+    </div>
+
+    <div class="controls">
+      <button class="cam-btn active" onclick="changeCam(1)">CAM 01</button>
+      <button class="cam-btn" onclick="changeCam(2)">CAM 02</button>
+      <button class="cam-btn" onclick="changeCam(3)">CAM 03</button>
+      <button class="cam-btn" onclick="changeCam(4)">CAM 04</button>
+      <button class="cam-btn" onclick="togglePower()" id="power">SLUK</button>
+    </div>
+
+    <div class="description">
+      <strong id="description">DOLAN - HOVEDRUM</strong>
+      <p id="details">Dolan er blevet registreret i kælderen.</p>
+    </div>
+
   </div>
+</section>
 
-  <main>
-    <section id="om" class="card">
-      <h2>Om mig</h2>
-      <p class="muted">Hej! Velkommen til DolanErFanget. Denne tekst kan du ændre, så den fortæller lidt om dig selv. Skriv kun oplysninger, du har lyst til at dele offentligt.</p>
-    </section>
+</main>
 
-    <section id="interesser" class="card">
-      <h2>Mine interesser</h2>
-      <div class="tiles">
-        <div class="tile"><strong>⚽ Fodbold</strong><span class="muted">Skriv lidt om dine yndlingshold eller spillere.</span></div>
-        <div class="tile"><strong>🎮 Gaming</strong><span class="muted">Fortæl hvilke spil du spiller.</span></div>
-        <div class="tile"><strong>✨ Mere</strong><span class="muted">Tilføj andre interesser eller hobbyer.</span></div>
-      </div>
-    </section>
+<footer>
+DOLANERFANGET // PRIVATE BASEMENT CCTV
+</footer>
 
-    <section id="kontakt" class="card">
-      <h2>Kontakt</h2>
-      <p class="muted">Du kan tilføje en offentlig kontaktmulighed her senere. Undgå at lægge privat adresse, telefonnummer eller andre personlige oplysninger ud.</p>
-    </section>
-  </main>
+<script>
+let currentCam = 1;
+let powered = true;
 
-  <footer>© <span id="year"></span> DolanErFanget · Lavet med HTML og CSS</footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+const cameraData = {
+  1: ["CAM 01 - DOLAN", "DOLAN - HOVEDRUM",
+      "Dolan er blevet registreret i kælderen."],
+  2: ["CAM 02 - LAGER", "LAGERET",
+      "Lageret er stille. Ingen bevægelse registreret."],
+  3: ["CAM 03 - TRAPPEN", "KÆLDERTRAPPEN",
+      "Trappen er tom. Lyset flimrer."],
+  4: ["CAM 04 - UKENDT", "UKENDT SIGNAL",
+      "Kameraet viser noget mærkeligt."]
+};
+
+function enter() {
+  document.getElementById("entrance").classList.add("hidden");
+  document.getElementById("monitor").classList.remove("hidden");
+}
+
+function goBack() {
+  document.getElementById("monitor").classList.add("hidden");
+  document.getElementById("entrance").classList.remove("hidden");
+}
+
+function changeCam(number) {
+  currentCam = number;
+
+  document.getElementById("camTitle").textContent =
+    cameraData[number][0];
+
+  document.getElementById("label").textContent =
+    "CAM 0" + number;
+
+  document.getElementById("description").textContent =
+    cameraData[number][1];
+
+  document.getElementById("details").textContent =
+    cameraData[number][2];
+
+  document.querySelectorAll(".cam-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  document.querySelectorAll(".cam-btn")[number - 1]
+    .classList.add("active");
+}
+
+function togglePower() {
+  powered = !powered;
+
+  document.getElementById("camera").style.visibility =
+    powered ? "visible" : "hidden";
+
+  document.getElementById("power").textContent =
+    powered ? "SLUK" : "TÆND";
+}
+</script>
+
 </body>
 </html>
